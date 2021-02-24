@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Lab Web</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/blog-post.css" rel="stylesheet">
+  <script src="a.out.js"></script>
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">AlexGz Random Posts</a>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+
+      <!-- Post Content Column -->
+      <div class="col-lg-8">
+
+        <!-- Title -->
+        <h1 class="mt-4">From C to Wasm</h1>
+
+        <!-- Author -->
+        <p class="lead">
+          by
+          <a href="#">AlexGz9851</a>
+          
+        </p>
+
+        <hr>
+
+        <!-- Date/Time -->
+        <p>Posted at some point of February 2021.</p>
+
+        <hr>
+
+        <!-- Preview Image -->
+        <img class="img-fluid rounded" src="css/wasm.jpg" alt="A cool image.">
+
+        <hr>
+
+        <!-- Post Content -->
+        <p class="lead">Utilizar wasm puede ser util para utilizar codigo fuente en lenguajes como C/C++/Rust, etc.</p>
+        <p>Por esto, haremos un tutorial para simplificar el proceso de instalación.</p>
+
+
+        <h2 class="mt-4">Instalación de Wasm para Python</h2>
+        <p>Lamentablemente no existe forma de compilar de Python a Wasm. Existen métodos de transformar archivos .py a .js, como es el caso de <a href="https://www.transcrypt.org/">Transcrypt</a>. 
+        Basicamente, una de las razones por las cuales no puede obtenerse archivos .wasm de archivos .py ( entre otras cosas ) es debido a que de forma realista, Python code no puede ser representado como código estaticamente tipado. (Para más info, lea <a href="https://stackoverflow.com/questions/44761748/compiling-python-to-webassembly">aquí</a>. )</p>
+        <h2 class="mt-4">Instalación de Wasm para C</h2>
+        <p>La forma más simple de utilizar wasm en este caso, es compilar tu código C a código asm.js Para esto, sigue las instrucciones:</p>
+        <h3 class="mt-4">Instalación de Emscripten</h3>
+        <p>Emscripten es un compilador que traducirá nuestro código de C a asm.js o a .wasm!. Sigue la guía de instalación / uso de <a href="https://emscripten.org/docs/getting_started/downloads.html">emscripten</a>.
+        Como resultado, el compilador ofrece como archivos de salida:  a.out.js y a.out.wasm. En este caso utilizaremos el archivo .js! </p>
+        <h3 class="mt-4">Tiempo de -C- odear!</h3>
+        <p>Genera tu código fuente! Puedes utilizar algún ejemplo sencillo, como el clásico <a href="https://www.programiz.com/c-programming/examples/print-sentence"> Hello World!</a> :D </p>
+        <h3 class="mt-4">Ya tienes tu proyecto destino?</h3>
+        <p>El archivo  a.out.js generado por emscripten puede ser llamado como un script más de js. Recuerda llamarlo con el tag <strong>&lt;script&gt;</strong> </p>
+        <h3 class="mt-4">Compila tu archivo asm.js!</h3>
+        <pre><code>emcc NOMBRE_TU_ARCHIVO.c -s WASM=1 -o NOMBRE_DESEADO.js </code></pre>
+      
+          <p>Se añade como archivo de salida el archivo.js, para que tambien compile el código C a este lenguaje. (El default es .wasm).</p>
+        <h3 class="mt-4">Ejecuta tu proyecto!</h3>
+        <p>Listo! Tu codigo tiene tu libreria de C integrada desde un script de js. Para correr tu proyecto, recuerda utilizar un servidor local!</p>
+
+        <hr>
+
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Laboratorio Web, semestre FJ 2021</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
